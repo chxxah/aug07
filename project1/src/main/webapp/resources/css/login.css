@@ -17,27 +17,27 @@ html, body {
 }
 
 .wrap {
-	width: 1200px;
+	width: 1000px;
 	height: 800px;
-	margin: 0 auto;
+	margin: 150px auto 0;
+	text-align: center;
 }
 
-.background {
+.img_form {
 	width: 500px;
 	height: 500px;
-	background-color: gray;
+	background-image: url("../img/background.jpg");
+	background-size: cover;
 	float: left;
 }
 
 .login_form {
 	width: 500px;
 	height: 500px;
-	margin: 0 auto;
 	box-sizing: border-box;
 	text-align: center;
-	margin-top: 100px;
 	float: left;
-	background-color: yellow;
+	text-align: center;
 }
 
 h1 {
@@ -52,7 +52,7 @@ h1 {
 	border-top: 0;
 	border-left: 0;
 	border-right: 0;
-	border-bottom-color: #EC87C0;
+	border-bottom-color: #bdbdbd;
 }
 
 #pw {
@@ -62,22 +62,47 @@ h1 {
 	border-top: 0;
 	border-left: 0;
 	border-right: 0;
-	border-bottom-color: #EC87C0;
+	border-bottom-color: #bdbdbd;
+}
+
+input {
+	padding: 15px;
+	box-sizing: border-box;
 }
 
 input::placeholder {
-	color: EC87C0;
+	color: #bdbdbd;
 }
 
 button {
 	width: 400px;
 	height: 50px;
-	margin-top: 50px;
+	margin-top: 30px;
 	background-color: black;
+	color: white;
+	border: 0;
+}
+
+.login:hover {
+	cursor: pointer;
+	background-color: #EC87C0;
 	color: white;
 }
 
 .footer {
-	width: 100%;
+	width: 300px;
 	margin: 50px;
+	margin: 0 auto;
+	margin-top: 50px;
+	color: black;
+}
+
+.footer a {
+	text-decoration: none;
+	color: black;
+}
+
+.footer a:hover {
+	cursor: pointer;
+	color: #EC87C0;
 }

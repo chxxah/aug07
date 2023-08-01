@@ -11,12 +11,16 @@
 	margin: 10px 0px;
 }
 
+button {
+	font-family: 'GangwonState';
+}
+
 body{
 	margin: 0;
 	padding: 0;
 }
 
-a{
+.nav a, .ch a{
 	text-decoration: none;
 	color: white;
 }

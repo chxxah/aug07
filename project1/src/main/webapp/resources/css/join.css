@@ -8,7 +8,10 @@ body {
 .join {
 	margin: 0 auto;
 	width: 700px;
-	height: 1200px;
+	height: auto;
+	border: 3px solid #E0E0E0;
+	margin-top: 50px;
+	box-sizing: border-box;
 }
 
 .join h1 {
@@ -26,29 +29,56 @@ body {
 }
 
 .title {
+	width: 520px;
 	margin: 0 auto;
 	align-content: center;
-	margin-left: 80px;
 	font-weight: bold;
 }
 
 input {
+	font-family: 'GangwonState';
 	width: 500px;
-	height: 30px;
+	height: 25px;
 	border: 1px solid black;
 	margin-top: 10px;
 	padding: 10px;
 }
 
+#id {
+	width: 400px;
+	float: left;
+}
+
+#idCheck {
+	width: 85px;
+	height: 45px;
+	margin-top: 10px;
+	margin-left: 10px;
+	border-radius: 0;
+	border: 1px solid #EC87C0;
+	font-size: 10pt;
+	color: white;
+	background-color: #EC87C0;
+	margin-bottom: 10px;
+}
+
+#idCheck:hover {
+	cursor: pointer;
+}
+
 .mb {
-	width: 500px;
-	height: 40px;
+	width: 520px;
+	height: 45px;
 	border: 1px solid black;
 	margin-top: 10px;
 }
 
-.select {
+select {
 	margin-top: 10px;
+	box-sizing: border-box;
+	font-family: 'GangwonState';
+	padding: 10px;
+	font-size: 13pt;
 }
 
 .select input[type=radio] {
@@ -59,14 +89,11 @@ input {
 	display: inline-block;
 	cursor: pointer;
 	height: 45px;
-	width: 250px;
+	width: 255px;
 	border: 1px solid #333;
 	text-align: center;
 	font-weight: bold;
 	line-height: 45px;
-}
-
-.select input[type=radio]+label {
 	background-color: #fff;
 	color: #333;
 }
@@ -77,18 +104,20 @@ input {
 }
 
 .btt {
-	width: 500px;
+	width: 100%;
 	height: 40px;
-	background-color: black;
+	padding: 0;
 	margin: 0 auto;
 	margin-top: 30px;
 	text-align: center;
+	box-sizing: border-box;
+	margin-bottom: 50px;
 }
 
 .cancel, .signup {
 	margin: 0 auto;
 	width: 100px;
-	height: 40px;.
+	height: 40px;
 	border: 0;
 	margin-left: 5px;
 	box-sizing: border-box;
@@ -98,12 +127,27 @@ input {
 	background-color: #bdbdbd;
 	color: white;
 	border: 0;
-	margin-right: 5px;
+	margin-right: 20px;
 	box-sizing: border-box;
+	font-size: 11pt; 
 }
 
 .signup {
+	color: #EC87C0;
+	background-color: white;
+	border: 2px solid #EC87C0;
+	font-size: 11pt; 
+}
+
+.cancel:hover {
+	cursor: pointer;
+	background-color: black;
+	font-weight: bold;
+}
+
+.signup:hover {
+	cursor: pointer;
 	background-color: #EC87C0;
 	color: white;
-	
+	font-weight: bold;
 }
