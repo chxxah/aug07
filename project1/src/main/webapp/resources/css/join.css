@@ -55,10 +55,10 @@ input {
 	margin-top: 10px;
 	margin-left: 10px;
 	border-radius: 0;
-	border: 1px solid #EC87C0;
+	border: 2px solid;
 	font-size: 10pt;
 	color: white;
-	background-color: #EC87C0;
+	background-color: black;
 	margin-bottom: 10px;
 }
 

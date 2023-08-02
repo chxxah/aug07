@@ -20,13 +20,15 @@
 		<div class="head_right">
 		<c:choose>
 			<c:when test="${sessionScope.mname eq null}">
-				<li class= "box_login" onclick="link('login')"><span class="list7">LOGIN</span></li>
+				<li class= "box_login" onclick="link('join')"><span class="list6">SIGN UP</span></li>
+				&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
+				<li class= "box_login" onclick="link('login')"><span class="list6">LOGIN</span></li>
 			</c:when>
 			<c:otherwise>
 				<li class= "box_id" onclick="link('myInfo')"><span class="list6">${sessionScope.mid }  
 						</span></li> 
 						&nbsp;&nbsp;&nbsp; | &nbsp;&nbsp;&nbsp;
-				<li class= "box_logout" onclick="link('logout')"><span class="list8">LOGOUT</span></li>
+				<li class= "box_logout" onclick="link('logout')"><span class="list6">LOGOUT</span></li>
 			</c:otherwise>
 		</c:choose>
 		</div>

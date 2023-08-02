@@ -11,36 +11,45 @@
 <script src="./js/jquery-3.7.0.min.js"></script>
 <script type="text/javascript">
 $(function() {
-	$('#idCheck').click(function() {
-		let id = $("#id").val();
-		if (id == "" || id.length < 3) {
-			$("#resultMSG").text("아이디는 5글자 이상이어야 합니다.");
-			$("#resultMSG").css("color","#A1887F");
-			$("#id").focus();
+	$("#idCheck").click(function () {
+		let id = $("#id").val();// id의 값을 뽑아내서 변수에 담음
+		// console.log(id);// 콘솔은 그냥 확인용
+		// console.log(id.length);
+		
+		// 비어있거나 4글자 미만일 경우
+		if ( id == "" || id.length < 4 ) {
+			$("#resultMSG").text("Please enter at least 4 characters.");
+			$("#resultMSG").css("color", "#E91E63").css("font-size", "12pt");
+			$("#id").css("border","2px solid #E91E63").focus();
 			
-		} else {
-			$.ajax({
-				url: "./checkID",
-				type: "post",
-				data: {"id": id},
-				dataType: "html",
-				success: function (data){
-					$("#resultMSG").text("data : " + data);
+		} else {// 정확히 입력했을 경우 
+			$.ajax({// ajax 시작
+				url : "./checkID",// post-mapping의 checkID
+				type : "post",
+				data : {"id" : id},// 값으로 id
+				dataType : "json", // json형태 : {result : 0}
+				success : function(data){// 성공했을 경우
+					// 서버에서 날라오는 data
+					// alert(data.result); = 오는 데이터에서 result만 뽑겠습니다. 라는 뜻
+					if (data.result == 1) {// 이미 등록된 아이디일 경우
+						$("#resultMSG").text("This username is already taken.").css("color", "#E91E63").css("font-size", "12pt");
+						$("#id").css("border","2px solid #E91E63").focus();
+						
+					} else {// 가입할 수 있는 경우
+						$("#resultMSG").text("This username is available.").css("color", "#424242").css("font-size", "12pt").css("font-weight", "border");
+						$("#id").css("border","1px solid black").css("background-color","#E8F0FE");
+					}
 				},
-				error: function(request, status, error){
-					$("#resultMSG").text("error : " + error);
-					console.log(error);
+				error : function (request, status, error){// 실패했을 경우
+					// 에러는 기본적으로 3가지 종류가 있음 : request, status, error
+					$("#resultMSG").text("Sorry, there was an error with your registration.").css("color", "#E91E63").css("font-size", "12pt");
 				}
+
 			});
-			
-			$("#resultMSG").text("사용 가능한 ID입니다.");
-			$("#resultMSG").css("color","black");
 		}
-		return false;
-		
-		let pw = $("#pw").val();
-		
+		return false;// 더 이상 진행을 멈춤
 	});
+	
 });
 
 </script>
