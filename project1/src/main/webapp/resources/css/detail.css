@@ -61,17 +61,51 @@ html, body {
 }
 
 .detail-content{
-	width: 500px;
+	width: 1000px;
 	height: auto;
-	margin: 0 auto;
+	margin: 50px auto;
 	font-family: 'SUIT-Regular';
-	border: 1px solid black;
+	box-sizing: border-box;
+	border-top: 2px solid #9E9E9E;
+	background-color: yellow;
 }
 
 .title{
-	width: 100%;
-	height: 50px;
+	width: 90%;
+	height: 60px;
+	line-height: 40px;
+	padding: 10px 30px;
 	font-size: 15pt;
 	font-weight: bolder;
+	background-color: pink;
+	box-sizing: border-box;
+	border-bottom: 2px solid #9E9E9E;
+	float: left;
 }
 
+.button_edit {
+	float: right;
+	width: 10%;
+}
+
+.button_edit:hover{
+	cursor: pointer;
+}
+
+.commentBox {
+	width: 100%;
+	height: 300px;
+	padding: 10px;
+	background-color: gray;
+	box-sizing: border-box;
+}
+
+#commenttextarea {
+	width: calc(100% - 100px);
+	height: 280px;
+}
+
+#comment {
+	width: 100px;
+	height: 280px;
+}

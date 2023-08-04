@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class LoginDAO {
-		
+
 	@Autowired
 	private SqlSession sqlSession;
 
@@ -32,5 +32,13 @@ public class LoginDAO {
 	public List<Map<String, Object>> boardList2() {
 		return sqlSession.selectList("login.boardList2");// login 안에다가 boardList2 만들기
 	}
-	
+
+	public List<Map<String, Object>> boardList2(int i) {
+		return sqlSession.selectList("login.boardList2", i);
+	}
+
+	public int totalCount() {
+		return sqlSession.selectOne("login.totalCount");
+	}
+
 }

@@ -29,12 +29,12 @@
 		SELECT * FROM members
 	</select>
 	
-	<select id="checkID" parameterType="String" resultType="Integer">
-		SELECT COUNT(*) FROM members WHERE m_id = #{id }
+	<select id="boardList2" parameterType="Integer" resultType="Map">
+		SELECT * FROM boardview LIMIT #{i }, 10
 	</select>
 	
-	<select id="boardList2" resultType="Map">
-		SELECT *
-		FROM boardview LIMIT 0, 10
+	<select id="totalCount" resultType="Integer">
+		SELECT count(*) FROM boardview
 	</select>
+	
 </mapper>

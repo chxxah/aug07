@@ -2,8 +2,8 @@ package com.peazh.board;
 
 public class BoardDTO {
 
-	private int bno, blike;
-	private String btitle, m_id, m_name, bcontent, bdate, bip, uuid;
+	private int bno, blike, commentcount;
+	private String btitle, m_id, m_name, bcontent, bdate, bip, uuid, m_mbti;
 
 	public int getBno() {
 		return bno;
@@ -75,6 +75,22 @@ public class BoardDTO {
 
 	public void setUuid(String uuid) {
 		this.uuid = uuid;
+	}
+
+	public int getCommentcount() {
+		return commentcount;
+	}
+
+	public void setCommentcount(int commentcount) {
+		this.commentcount = commentcount;
+	}
+
+	public String getM_mbti() {
+		return m_mbti;
+	}
+
+	public void setM_mbti(String m_mbti) {
+		this.m_mbti = m_mbti;
 	}
 
 }

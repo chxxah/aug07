@@ -1,6 +1,7 @@
 package com.peazh.board;
 
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -74,6 +75,18 @@ public class BoardController {
 		dto.setBno(bno);// 글 상세보기에선 mid가 없어도 됩니다.
 
 		BoardDTO result = boardService.detail(dto);
+		
+		// detail에 댓글 추가하기
+		// 댓글이 있을 때만 내용을 담기
+		if (result.getCommentcount() > 0) {
+			//데이터 베이스에 물어봐서 jsp 보내기
+			
+			// dto 안 만들고 list로 만들었음
+			// 해당 bno의 댓글을 list에 담아서 뽑아내기
+			List<Map<String, Object>> commentsList = boardService.commentsList(bno);
+			// 뽑아낸 댓글을 model에 붙이기
+			model.addAttribute("commentsList", commentsList);
+		}
 		model.addAttribute("dto", result);
 
 		return "/detail";

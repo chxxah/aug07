@@ -1,6 +1,7 @@
 package com.peazh.board;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -75,6 +76,10 @@ public class BoardService {
 	// 페이지 전체 글 가져오기
 	public int totalCount() {
 		return boardDAO.totalCount();
+	}
+
+	public List<Map<String, Object>> commentsList(int bno) {
+		return boardDAO.commentsList(bno);
 	}
 
 }

@@ -1,6 +1,7 @@
 package com.peazh.board;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -30,7 +31,7 @@ public class BoardDAO {
 	}
 
 	public void delete(BoardDTO dto) {
-		sqlSession.delete("board.delete", dto);
+		sqlSession.update("board.delete", dto);
 	}
 
 	public void edit(BoardDTO dto) {
@@ -44,5 +45,9 @@ public class BoardDAO {
 	// 페이지 전체 글 가져오기
 	public int totalCount() {
 		return sqlSession.selectOne("board.totalCount");
+	}
+
+	public List<Map<String, Object>> commentsList(int bno) {
+		return sqlSession.selectList("board.commentsList", bno);
 	}
 }

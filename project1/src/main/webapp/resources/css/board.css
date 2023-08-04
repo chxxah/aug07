@@ -116,18 +116,22 @@ img {
 	vertical-align: middle;
 }
 
+/* . page img { 수정하기
+	width: 20px;
+	vertical-align: middle;
+} */
+
 .page a, strong {
 	display: block;
-	margin: 0 2px;
+	margin: 0;
 	float: left;
-	/* border: 1px solid #e6e6e6; */
-	width: 30px;
-	height: 30px;
+	border: 1px solid #e6e6e6;
+	width: 28px;
+	height: 28px;
 	line-height: 28px;
 	text-align: center;
-	font-size: 15px;
+	font-size: 14px;
 	color: #757575;
-	margin-right: 10px;
 }
 
 .page a:hover {
@@ -138,6 +142,11 @@ strong {
     font-weight: bolder;
     color: #EC87C0;
     cursor: pointer;
+}
+
+small {
+	color: #A1887F;
+	font-weight: 800;
 }
 
 .block1 {
