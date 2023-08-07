@@ -3,6 +3,8 @@ package com.peazh.rest;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,13 +13,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.peazh.board.BoardService;
 import com.peazh.login.LoginService;
+import com.peazh.util.Util;
 
 @RestController
 public class ResttController {
 
 	@Autowired
 	private LoginService loginService;
+
+	@Autowired
+	private Util util;
+	
+	@Autowired
+	private BoardService boardService;
 
 	// 아이디 중복검사
 	@PostMapping("/checkID")
@@ -53,14 +63,29 @@ public class ResttController {
 		return json.toString();
 	}
 
-	/*
-	 * boardList2 = { totalCount : 128, pageNo:1, list : [ {bno:1, btitle:....}
-	 * {bno:1, btitle:....}, {bno:1, btitle:....}, {bno:1, btitle:....}, {bno:1,
-	 * btitle:....} ] }
-	 * 
-	 * 
-	 * 객체 : {키 : 값, 이름 : 값,..............}
-	 * 
-	 */
+	// 자바스크립트로 만든 것
+	@PostMapping("/checkID2")
+	public String checkID2(@RequestParam("id") String id) {
+		int result = loginService.checkID(id);
+		return result + "";
+	}
+
+	// 댓글 삭제
+	@PostMapping("/cdelR")
+	public String cdelR(@RequestParam Map<String, Object> map, HttpSession session) {
+		int result = 0;
+		// 로그인 여부 검사
+		if (session.getAttribute("mid") != null) {
+			// 값 들어왔는지 여부 검사
+			if (util.isEmpty(map.get("bno")) && util.isEmpty(map.get("cno")) && util.isNum(map.get("bno"))
+					&& util.isNum(map.get("cno"))) {
+				map.put("mid", session.getAttribute("mid"));
+				result = boardService.cdel(map);
+			}
+		}
+		JSONObject json = new JSONObject();
+		json.put("result", result);
+		return json.toString();
+	}
 
 }

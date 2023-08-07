@@ -79,5 +79,24 @@ public class Util {
 		}
 		return ip;
 	}
+	
+	// 숫자로 변환할 수 있는지 확인하기
+	public boolean isNum(Object obj) {
+		try {
+			//String.valueOf(obj) obj의 값을 뽑아서 string으로 바꿔준다는 뜻
+			Integer.parseInt(String.valueOf(obj));
+			return true;//바꿀 수 있다면 내보내기
+		} catch (Exception e) {
+			return false;
+		}
+	}
+	
+	// 내용이 비어있는지 확인하기
+	public boolean isEmpty(Object obj) {
+		if (obj != null && !(obj.equals(""))) {
+			return true;
+		}
+		return false;
+	}
 
 }

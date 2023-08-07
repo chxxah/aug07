@@ -52,5 +52,11 @@
 		FROM commentsview
 		WHERE bno=#{bno }
 	</select>
+	
+	<update id="cdel" parameterType="Map">
+		UPDATE comments SET c_del=0 
+		WHERE bno=#{bno } AND c_no=#{cno } 
+		AND m_no=(SELECT m_no FROM members WHERE m_id=#{mid })
+	</update>
 
 </mapper>

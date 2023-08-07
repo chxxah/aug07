@@ -198,5 +198,34 @@ public class BoardController {
 
 		return "redirect:detail?bno=" + dto.getBno();// 보드로 이동하게 해주세요
 	}
+	
+	// 댓글 삭제
+	@GetMapping("/cdel") //bno, cno
+	public String cdel(@RequestParam Map<String, Object> map, HttpSession session) {
+		// 로그인 여부 검사
+		if (session.getAttribute("mid") != null) {
+			// 값 들어왔는지 여부 검사
+			if (util.isEmpty(map.get("bno")) && util.isEmpty(map.get("cno")) && util.isNum(map.get("bno")) && util.isNum(map.get("cno"))) {
+				
+				map.put("mid", session.getAttribute("mid"));
+				boardService.cdel(map);
+				return "redirect:/detail?bno="+map.get("bno");
+			} else {
+				return "redirect:/board";
+			}
+		} else {
+			return "redirect:/login";
+		}
+		
+	}
+	
+	// 댓글 수정
+	@GetMapping("/cedit")
+	public String cedit(@RequestParam Map<String, Object> map, HttpSession session) {
+		if (session.getAttribute("mid") != null) {
+			
+		}
+		return "";
+	}
 
 }
